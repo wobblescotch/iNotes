@@ -43,8 +43,7 @@ app.get('/fetch', (req, response) => {
     })
 })
 
-// http://10.5.42.158:8081/create
-var server = app.listen(8081, "10.5.42.158", () => {
+var server = app.listen(8081, ipaddress, () => {
     console.log("Server is running!")
 })
 
