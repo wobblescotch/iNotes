@@ -27,7 +27,7 @@ class APIFunctions {
     
     // fetches notes from database
     func fetchNotes() {
-        AF.request("http://10.5.42.158:8081/fetch").response { response in
+        AF.request("http://ipaddress/fetch").response { response in
             print(response.data)
             // converts the response into utf8 string format
             let data = String(data: response.data!, encoding: .utf8)
@@ -38,7 +38,7 @@ class APIFunctions {
     
     // Adds a note to the server, passing the arguments as headers
     func addNote(date: String, title: String, note: String) {
-        AF.request("http://10.5.42.158:8081/create", method: .post, encoding: URLEncoding.httpBody, headers: ["title": title, "date": date, "note": note]).responseJSON {
+        AF.request("http://ipaddress/create", method: .post, encoding: URLEncoding.httpBody, headers: ["title": title, "date": date, "note": note]).responseJSON {
             response in
             print(response)
         }
@@ -46,7 +46,7 @@ class APIFunctions {
     
     // Updates a note to the server, passing the arguments as headers
     func updateNote(date: String, title: String, note: String, id: String) {
-        AF.request("http://10.5.42.158:8081/update", method: .post, encoding: URLEncoding.httpBody, headers: ["title": title, "date": date, "note": note, "id": id]).responseJSON {
+        AF.request("http://ipaddress/update", method: .post, encoding: URLEncoding.httpBody, headers: ["title": title, "date": date, "note": note, "id": id]).responseJSON {
             response in
             print(response)
         }
@@ -54,7 +54,7 @@ class APIFunctions {
     
     // Deletes a note from the server, passing the notes id as headers
     func deleteNote(id: String) {
-        AF.request("http://10.5.42.158:8081/delete", method: .post, encoding: URLEncoding.httpBody, headers: ["id": id]).responseJSON {
+        AF.request("http://ipaddress/delete", method: .post, encoding: URLEncoding.httpBody, headers: ["id": id]).responseJSON {
             response in
             print(response)
         }
